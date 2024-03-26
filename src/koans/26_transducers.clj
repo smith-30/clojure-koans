@@ -6,7 +6,7 @@
 
 (def transforms
   (comp (map inc)
-     (filter even?)))
+        (filter even?)))
 
 (meditations
  "A sequence operation with only one argument often returns a transducer"
