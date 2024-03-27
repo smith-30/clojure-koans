@@ -3,21 +3,35 @@
 
 (defn is-even? [n]
   (if (= n 0)
-    __
-    (___ (is-even? (dec n)))))
+    true
+    (not (is-even? (dec n)))))
 
 (defn is-even-bigint? [n]
   (loop [n   n
          acc true]
     (if (= n 0)
-      __
+      acc
       (recur (dec n) (not acc)))))
 
 (defn recursive-reverse [coll]
-  __)
+  (if (empty? coll)         ; もしリストが空なら
+    '()                     ; 空のリストを返す
+    (concat                 ; そうでなければ、
+     (recursive-reverse (rest coll)) ; 最初の要素を取り除いて再帰的に逆順にしたリスト
+     (list (first coll)))))           ; そして最初の要素をリストの最後に追加する)
+
+;; (defn factorial [n]
+;;   (if (= n 0)
+;;     1
+;;     (* n (factorial (- n 1)))))
+
 
 (defn factorial [n]
-  __)
+  (loop [acc 1
+         x n]
+    (if (<= x 0)
+      acc
+      (recur (* acc x) (dec x)))))
 
 (meditations
  "Recursion ends with a base case"
